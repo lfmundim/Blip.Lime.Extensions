@@ -71,7 +71,7 @@ namespace Blip.Lime.Extensions.Services
         /// <param name="cardText"></param>
         /// <param name="cardTitle"></param>
         /// <returns></returns>
-        public CarouselCard CreateCarouselCard(Dictionary<string, string> options, Uri imageUri, string cardText, string cardTitle = "") //TODO change to generics
+        public CarouselCard CreateCarouselCard(Dictionary<string, string> options, Uri imageUri, string cardText, string cardTitle = "")
         {
             var body = GenerateBody(imageUri, cardText, cardTitle);
             var cardOptions = new List<CardOption>();
@@ -90,7 +90,7 @@ namespace Blip.Lime.Extensions.Services
         /// <param name="cardText"></param>
         /// <param name="cardTitle"></param>
         /// <returns></returns>
-        public CarouselCard CreateCarouselCard(Dictionary<string, Uri> options, Uri imageUri, string cardText, string cardTitle = "") //TODO change to generics
+        public CarouselCard CreateCarouselCard(Dictionary<string, Uri> options, string cardText, string cardTitle = "", Uri imageUri = null)
         {
             var body = GenerateBody(imageUri, cardText, cardTitle);
             var cardOptions = new List<CardOption>();
@@ -103,6 +103,25 @@ namespace Blip.Lime.Extensions.Services
         }
 
         /// <summary>
+        /// Creates a carousel card with an image and different kinds of options (up to 3 options)
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="imageUri"></param>
+        /// <param name="cardText"></param>
+        /// <param name="cardTitle"></param>
+        /// <returns></returns>
+        public CarouselCard CreateCarouselCard(List<CardOption> options, string cardText, string cardTitle = "", Uri imageUri = null)
+        {
+            var body = GenerateBody(imageUri, cardText, cardTitle);
+            var cardOptions = new List<CardOption>();
+            foreach (var option in options)
+            {
+                cardOptions.Add(option);
+            }
+            return new CarouselCard(body, cardOptions);
+        }
+
+        /// <summary>
         /// Creates a carousel card with an image and simple options (up to 3 options)
         /// </summary>
         /// <param name="options"></param>
@@ -110,7 +129,7 @@ namespace Blip.Lime.Extensions.Services
         /// <param name="cardText"></param>
         /// <param name="cardTitle"></param>
         /// <returns></returns>
-        public CarouselCard CreateCarouselCard(List<string> options, Uri imageUri, string cardText, string cardTitle = "")
+        public CarouselCard CreateCarouselCard(List<string> options, string cardText, string cardTitle = "", Uri imageUri = null)
         {
             var body = GenerateBody(imageUri, cardText, cardTitle);
             var cardOptions = new List<CardOption>();

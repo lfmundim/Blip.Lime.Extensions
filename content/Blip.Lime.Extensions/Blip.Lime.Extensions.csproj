@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Lucas Mundim</Authors>
+    <Company />
+    <Description>Package to help create LIME Content to use on BLiP</Description>
+    <RepositoryUrl>https://github.com/lfmundim/Blip.Lime.Extensions</RepositoryUrl>
+    <PackageTags>blip, chatbot, lime, extensions, take</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>.\Blip.Lime.Extensions\Blip.Lime.Extensions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>.\Blip.Lime.Extensions\Blip.Lime.Extensions.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
